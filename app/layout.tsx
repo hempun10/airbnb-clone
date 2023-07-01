@@ -1,4 +1,4 @@
-import { Footer, Navbar } from "@/components";
+import { ClientOnly, Footer, Modal, Navbar, RegisterModal } from "@/components";
 import "./globals.css";
 import { Nunito } from "next/font/google";
 
@@ -17,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar />
+        <ClientOnly>
+          <RegisterModal />
+          <Navbar />
+        </ClientOnly>
         <main>{children}</main>
         <Footer />
       </body>
